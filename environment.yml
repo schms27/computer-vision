@@ -1,0 +1,7 @@
+name: computer-vision
+channels:
+  - conda-forge
+dependencies:
+  - jupyterlab==4.0.2
+  - opencv==4.7.0
+  - matplotlib==3.7.2
