@@ -29,3 +29,10 @@ def array_to_image(array, format='jpeg'):
     PIL.Image.fromarray(array).save(frame, format)
 
     return display.Image(data=frame.getvalue())
+
+def mse(image_1, image_2):
+    if image_1.shape != image_2.shape:
+        raise Exception("Images need to be of the same dimensions")
+    error = np.sum((image_1.astype("float") - image_2.astype("float")) ** 2)
+    error /= float(image_1.shape[0] * image_1.shape[1]) 
+    return error
