@@ -1,5 +1,8 @@
 import cv2
+import PIL
 import numpy as np
+from io import BytesIO
+from IPython import display
 from matplotlib import pyplot as plt
 
 
@@ -17,3 +20,12 @@ def median_canny(image, lower_thresh_ratio=0.6, upper_thres_ratio=1.4):
     lower = int(max(0, lower_thresh_ratio * median_value))
     upper = int(min(255, upper_thres_ratio * median_value))
     return cv2.Canny(blurred, threshold1=lower, threshold2=upper)
+
+def array_to_image(array, format='jpeg'):
+    # create binary stream object
+    frame = BytesIO()
+
+    # convert array to binary stream object
+    PIL.Image.fromarray(array).save(frame, format)
+
+    return display.Image(data=frame.getvalue())
