@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.6.2-base-ubuntu20.04
+FROM nvidia/cuda:11.7.1-base-ubuntu20.04
 
 # set timezone and noninteractive to avoid blocking questions
 ENV TZ=Europe/Zurich \
@@ -17,6 +17,10 @@ RUN apt-get update && apt-get install -y \
     bzip2 \
     libx11-6 \
     libgl1 \
+    libjpeg-turbo8 \
+    g++ \
+    build-essential \
+    cmake \
  && rm -rf /var/lib/apt/lists/*
 
 # Create a working directory
