@@ -2,6 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import itertools
 
+def show_torch_image(imagegrid):
+    imagegrid = imagegrid / 2 + 0.5     # de-normalize
+    np_img = imagegrid.numpy()
+    plt.imshow(np.transpose(np_img, (1, 2, 0)))
+    plt.show()
+
 
 def plot_confusion_matrix(cm,
                           target_names,
