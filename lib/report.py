@@ -1,12 +1,30 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import itertools
+from torchvision import utils
 
 def show_torch_image(imagegrid):
     imagegrid = imagegrid / 2 + 0.5     # de-normalize
     np_img = imagegrid.numpy()
     plt.imshow(np.transpose(np_img, (1, 2, 0)))
     plt.show()
+
+def visualize_torch_tensor(tensor, ch=0, all_kernels=False, nrow=8, padding=1):
+    batch_size, channels, height, width = tensor.shape
+
+    if all_kernels: 
+        tensor = tensor.view(batch_size * channels, -1, width, height)
+    elif channels != 3: 
+        tensor = tensor[:, ch, :, :].unsqueeze(dim=1)
+
+    rows = np.min((tensor.shape[0] // nrow + 1, 64))    
+    grid = utils.make_grid(tensor, nrow=nrow, normalize=True, padding=padding)
+    plt.figure( figsize=(nrow,rows) )
+    plt.imshow(grid.numpy().transpose((1, 2, 0)))
+    plt.axis('off')
+    plt.ioff()
+    plt.show()
+
 
 
 def plot_confusion_matrix(cm,

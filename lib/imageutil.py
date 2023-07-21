@@ -14,6 +14,23 @@ def show_image(image = None, title = "Image", size = 5, color_conversion = cv2.C
     plt.title(title)
     plt.show()
 
+def visualize_image_grid(images, title = "Imagegrid", size = (10,10), subplot_grid = (8, 8), save_to_file=None, cmap='gray'):
+    plt.figure(figsize=size)
+
+    for i, img in enumerate(images):
+        plt.subplot(subplot_grid[0], subplot_grid[1], i+1)
+        plt.imshow(img, cmap=cmap)
+        plt.axis('off')
+        
+    if save_to_file != None:
+        plt.savefig(save_to_file)
+
+    if title != None:
+        plt.suptitle(title)
+        plt.show()
+    
+    plt.close()
+
 def median_canny(image, lower_thresh_ratio=0.6, upper_thres_ratio=1.4):
     blurred = cv2.blur(image, ksize=(5,5))
     median_value = np.median(blurred) 
