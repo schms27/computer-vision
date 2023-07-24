@@ -1,3 +1,13 @@
+"""
+Original source:
+
+Farhad Dalirani. (2021). 
+farhad-dalirani/PytorchRevelio: PytorchRevelio-V1.1.0
+
+https://github.com/farhad-dalirani/PytorchRevelio
+"""
+
+
 import torch
 import torch.nn as nn
 from torch.nn import functional as FF
@@ -21,7 +31,7 @@ def normalize_for_display(img, saturation=0.15, brightness=0.5):
 
 def imagenet_labels(class_number, length=20):
 
-    file = open("imagenet_labels/imagenet1000_clsidx_to_labels.json", "r")
+    file = open("./imagenet_labels/imagenet1000_clsidx_to_labels.json", "r")
     lines = file.readlines()
 
     string = lines[class_number].split('\'')[1]

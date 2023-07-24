@@ -1,3 +1,12 @@
+"""
+Original source:
+
+Farhad Dalirani. (2021). 
+farhad-dalirani/PytorchRevelio: PytorchRevelio-V1.1.0
+
+https://github.com/farhad-dalirani/PytorchRevelio
+"""
+
 import numpy as np
 import torchvision.transforms.functional as F
 from torchvision import transforms
