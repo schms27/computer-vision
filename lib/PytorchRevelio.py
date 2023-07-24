@@ -289,7 +289,7 @@ class PytorchRevelio:
             input_img = smoothing(input_img.detach().clone())
             input_img.requires_grad = True
 
-        return input_img
+        return input_img 
 
     @staticmethod
     def activation_maximization_with_bilateral_blurring(network, img_transformer, in_img_size,
