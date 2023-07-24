@@ -13,6 +13,8 @@ import torch.nn as nn
 from torch.nn import functional as FF
 import numbers
 import math
+import pkgutil
+import json
 
 
 def normalize_for_display(img, saturation=0.15, brightness=0.5):
@@ -31,14 +33,15 @@ def normalize_for_display(img, saturation=0.15, brightness=0.5):
 
 def imagenet_labels(class_number, length=20):
 
-    file = open("./imagenet_labels/imagenet1000_clsidx_to_labels.json", "r")
-    lines = file.readlines()
+    data = pkgutil.get_data(__name__, "imagenet_labels/imagenet1000_clsidx_to_labels.json")
+    text = data.decode('utf8')
+    content = json.loads(text)
 
-    string = lines[class_number].split('\'')[1]
-    if len(string) > length:
-        string = string[0:length]
+    class_name = content[f'{class_number}']
+    if len(class_name) > length:
+        return class_name[0:length]
 
-    return string
+    return class_name
 
 
 class GaussianSmoothing(nn.Module):
