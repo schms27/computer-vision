@@ -3,3 +3,7 @@ __pycache__
 
 tmp
 out
+
+ImageNetV2-matched-frequency
+
+**/*.tar.gz
