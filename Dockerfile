@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     git \
     wget \
     bzip2 \
+    unzip \
     libx11-6 \
     libgl1 \
     libjpeg-turbo8 \

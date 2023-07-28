@@ -4,6 +4,9 @@ __pycache__
 tmp
 out
 
+lightning_logs
+
 ImageNetV2-matched-frequency
 
 **/*.tar.gz
+**/*.ckpt
