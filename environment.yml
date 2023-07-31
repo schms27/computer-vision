@@ -19,6 +19,7 @@ dependencies:
   - tqdm==4.65.0
   - torchinfo==1.8.0
   - tensorboard==2.13.0
+  - onnx==1.14.0
   - pip
   - pip:
     - dlib-binary==19.21.99
