@@ -5,6 +5,7 @@ tmp
 out
 
 models
+weights
 lightning_logs
 
 MNIST
