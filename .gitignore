@@ -10,6 +10,8 @@ lightning_logs
 
 MNIST
 ImageNetV2-matched-frequency
+ScaledYOLOv4
+mish-cuda
 
 **/*.tar.gz
 **/*.ckpt
